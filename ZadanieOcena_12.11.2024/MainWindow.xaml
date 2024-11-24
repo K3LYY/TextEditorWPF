@@ -1,0 +1,146 @@
+﻿<Window x:Class="ZadanieOcena_12._11._2024.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ZadanieOcena_12._11._2024"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="550" Width="700">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition MaxWidth="350"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Horizontal" Height="25" VerticalAlignment="Top" Grid.ColumnSpan="2" HorizontalAlignment="Center">
+            <Label>
+                Content:
+            </Label>
+            <TextBox Name="main_Textbox" Width="625" Margin="2" TextChanged="textToLabel">
+
+            </TextBox>
+        </StackPanel>
+        <Label Name="final_Label" Grid.Row="1" Grid.Column="1" BorderBrush="Black" BorderThickness="2" Margin="5" Padding="1" MinWidth="100" MinHeight="100" MaxHeight="400" MaxWidth="250">
+            <TextBlock Name="final_Label_Text" TextWrapping="Wrap" Padding="10">
+                
+            </TextBlock>
+        </Label>
+        <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Vertical">
+            <StackPanel Orientation="Horizontal">
+                <GroupBox Header="Alignment" Margin="5">
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel Orientation="Vertical">
+                            <Label FontWeight="Bold">HORIZONTAL</Label>
+                            <RadioButton Name="Alignment_Horizontal_Left" Checked="Alignment_Horizontal_Changed">Left</RadioButton>
+                            <RadioButton Name="Alignment_Horizontal_Center" Checked="Alignment_Horizontal_Changed">Center</RadioButton>
+                            <RadioButton Name="Alignment_Horizontal_Right" Checked="Alignment_Horizontal_Changed">Right</RadioButton>
+                        </StackPanel>
+                        <StackPanel Orientation="Vertical">
+                            <Label FontWeight="Bold">VERTICAL</Label>
+                            <RadioButton Name="Alignment_Vertical_Top" Checked="Alignment_Vertical_Changed">Top</RadioButton>
+                            <RadioButton Name="Alignment_Vertical_Center" Checked="Alignment_Vertical_Changed">Center</RadioButton>
+                            <RadioButton Name="Alignment_Vertical_Bottom" Checked="Alignment_Vertical_Changed">Bottom</RadioButton>
+                        </StackPanel>
+                    </StackPanel>
+                </GroupBox>
+                <GroupBox Header="Content Alignment" Margin="5">
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel Orientation="Vertical">
+                            <Label FontWeight="Bold">HORIZONTAL</Label>
+                            <RadioButton Name="Alignment_Content_Horizontal_Left" Checked="Alignment_Content_Horizontal_Changed">Left</RadioButton>
+                            <RadioButton Name="Alignment_Content_Horizontal_Center" Checked="Alignment_Content_Horizontal_Changed">Center</RadioButton>
+                            <RadioButton Name="Alignment_Content_Horizontal_Right" Checked="Alignment_Content_Horizontal_Changed">Right</RadioButton>
+                        </StackPanel>
+                        <StackPanel Orientation="Vertical">
+                            <Label FontWeight="Bold">VERTICAL</Label>
+                            <RadioButton Name="Alignment_Content_Vertical_Top" Checked="Alignment_Content_Vertical_Changed">Top</RadioButton>
+                            <RadioButton Name="Alignment_Content_Vertical_Center" Checked="Alignment_Content_Vertical_Changed">Center</RadioButton>
+                            <RadioButton Name="Alignment_Content_Vertical_Bottom" Checked="Alignment_Content_Vertical_Changed">Bottom</RadioButton>
+                        </StackPanel>
+                    </StackPanel>
+                </GroupBox>
+            </StackPanel>
+
+            <GroupBox Header="Font" Padding="5" Margin="20 8 0 8" MaxWidth="350" HorizontalAlignment="Left">
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Horizontal">
+                            <Label>Font</Label>
+                            <ComboBox Width="150">
+                                <ComboBoxItem IsSelected="True" Name="Font_1" Selected="Font_Family_Changed">Arial</ComboBoxItem>
+                                <ComboBoxItem Name="Font_2" Selected="Font_Family_Changed">Tahoma</ComboBoxItem>
+                            </ComboBox>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0, 5">
+                            <Label>Size</Label>
+                            <TextBox Width="153" Name="Font_Size" TextChanged="Font_Size_Changed" PreviewTextInput="NumberValidationTextBox" VerticalContentAlignment="Center"></TextBox>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="5, 0, 0, 0">
+                        <CheckBox FontWeight="Bold" Margin="0, 0, 5, 0" Name="Font_Bold" Checked="Font_Weight_Changed" Unchecked="Font_Weight_Changed">Bold</CheckBox>
+                        <CheckBox FontStyle="Italic" Name="Font_Italic" Checked="Font_Weight_Changed" Unchecked="Font_Weight_Changed">Italic</CheckBox>
+                    </StackPanel>
+                </StackPanel>
+            </GroupBox>
+
+            <GroupBox Header="Other" Margin="8" MaxWidth="350" HorizontalAlignment="Left">
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Margin="0, 0, 6, 0">Margin</Label>
+                        <Slider TickPlacement="TopLeft" TickFrequency="10" Minimum="0" Maximum="200" Width="270" VerticalAlignment="Center" Name="Text_Margin" ValueChanged="Font_Margin_Padding_Changed"></Slider>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Padding</Label>
+                        <Slider TickPlacement="TopLeft" TickFrequency="5" Minimum="0" Maximum="100" Width="270" VerticalAlignment="Center" Name="Text_Padding" ValueChanged="Font_Margin_Padding_ChangedTest"></Slider>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Background</Label>
+                        <Label>R</Label>
+                        <Slider Maximum="255" Width="50" VerticalAlignment="Center" ValueChanged="Background_Color_Changed" Name="Background_Red"></Slider>
+                        <Label>G</Label>
+                        <Slider Maximum="255" Width="50" VerticalAlignment="Center" ValueChanged="Background_Color_Changed" Name="Background_Green"></Slider>
+                        <Label>B</Label>
+                        <Slider Maximum="255" Width="50" VerticalAlignment="Center" ValueChanged="Background_Color_Changed" Name="Background_Blue"></Slider>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Foreground</Label>
+                        <Label>R</Label>
+                        <TextBox Width="50" PreviewTextInput="NumberValidationTextBox" VerticalAlignment="Center" Name="Foreground_Red" TextChanged="Foreground_Color_Changed"></TextBox>
+                        <Label>G</Label>
+                        <TextBox Width="50" PreviewTextInput="NumberValidationTextBox" VerticalAlignment="Center" Name="Foreground_Green" TextChanged="Foreground_Color_Changed"></TextBox>
+                        <Label>B</Label>
+                        <TextBox Width="50" PreviewTextInput="NumberValidationTextBox" VerticalAlignment="Center" Name="Foreground_Blue" TextChanged="Foreground_Color_Changed"></TextBox>
+                    </StackPanel>
+
+                    <GroupBox Header="Border">
+                        <StackPanel Orientation="Vertical">
+                            <StackPanel Orientation="Horizontal">
+                                <Label>Brush</Label>
+                                <ComboBox Width="260">
+                                    <ComboBoxItem IsSelected="True" Name="Border_Black" Selected="Border_Color_Changed">Black</ComboBoxItem>
+                                    <ComboBoxItem Name="Border_Red" Selected="Border_Color_Changed">Red</ComboBoxItem>
+                                    <ComboBoxItem Name="Border_Green" Selected="Border_Color_Changed">Green</ComboBoxItem>
+                                    <ComboBoxItem Name="Border_Blue" Selected="Border_Color_Changed">Blue</ComboBoxItem>
+                                </ComboBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Label>Thicknes</Label>
+                                <Slider Width="245" VerticalAlignment="Center" Name="Border_Thickness" Minimum="0" Maximum="10" TickFrequency="1" TickPlacement="TopLeft" ValueChanged="Border_Thickness_Changed"></Slider>
+                            </StackPanel>
+                        </StackPanel>
+                    </GroupBox>
+                </StackPanel>
+
+            </GroupBox>
+
+        </StackPanel>
+        
+    </Grid>
+</Window>
